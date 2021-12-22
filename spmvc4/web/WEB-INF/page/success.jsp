@@ -19,6 +19,10 @@
   request:${requestScope.hello}<br>
   session:${sessionScope.hello}<br>
   application:${applicationScope.hello}<br>
+  <BR>
+  测试@SessionAttributes注解<br>
+  request:${requestScope.username}
+  session:${sessionScope.username}
 
   </body>
 </html>
