@@ -8,19 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>HOME PAGE</title>
+    <title>USER PAGE</title>
   </head>
   <body>
-  欢迎来到---首页
 
   <% pageContext.setAttribute("ctp",request.getContextPath());%>
 
   <form action="${ctp}/user/1" method="post">
-      <input type="hidden" name="id" value="1"><%--隐藏域，写死id=1 --%><br>
-      姓名：<input type="text" name="name"><br>
-      年龄：<input type="text" name="age"><br>
-      密码：<input type="password" name="password"><br>
-      <input type="submit" value="更 新"><br>
+    <input type="hidden" name="id" value="1"><%--隐藏域，写死id=1 --%><br>
+    姓名：<input type="text" name="name" value="${user.name}"><br>
+    年龄：<input type="text" name="age" value="${user.age}"><br>
+    密码：<input type="password" name="password" value="${user.password}"><br>
+    <input type="submit" value="更 新"><br>
   </form>
 
   </body>
