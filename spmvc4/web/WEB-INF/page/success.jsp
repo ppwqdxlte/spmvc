@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>HOME PAGE</title>
+    <title>SUCCESS!</title>
   </head>
   <body>
-  欢迎来到---首页
+  欢迎来到<br>
+  ${hello}
   </body>
 </html>
