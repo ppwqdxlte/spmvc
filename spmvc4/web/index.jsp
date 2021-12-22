@@ -22,6 +22,10 @@
       密码：<input type="password" name="password"><br>
       <input type="submit" value="更 新"><br>
   </form>
+  
+  <br>
+  <br>
+  <img src="${ctp}/static/images/shenzhen.jpg" alt="找不到？咋回事儿！"/>
 
   </body>
 </html>

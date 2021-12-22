@@ -36,16 +36,9 @@
         <servlet-name>springmvc</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    <!--请求静态资源-->
-    <servlet>
-        <servlet-name>default</servlet-name>
-        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.html</url-pattern>
-    </servlet-mapping>
 
+    <!--请求静态资源
+    这个配置放于 springmvc.xml中-->
 
     <filter>
         <filter-name>hidden</filter-name>
