@@ -35,7 +35,7 @@ public class UserController {
     /*
     照样赋值给了模型属性user
     * */
-    @ModelAttribute
+    @ModelAttribute("user")
     public User testModelAttribute2(){
         System.out.println("testModelAttribute2----------------------------");
         User user = new User(1,"Yadianna",21,"awemofiwnoi");
