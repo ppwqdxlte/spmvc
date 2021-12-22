@@ -7,6 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Map;
 
+
+/*
+ * JSP 页面有几种作用域？？有几种内置对象？
+ *  【答】9大内置对象，4大作用域
+ *  四个作用域：
+ *   page:           当前页面
+ *   request:        当前请求
+ *   session:        当前会话
+ *   application:    当前应用
+ *  【注意】当使用Map\Model\ModelMap传递数据的时候，数据被放在requestScope作用域中！！
+ * */
 @Controller
 @RequestMapping("/output")
 public class OutputController {

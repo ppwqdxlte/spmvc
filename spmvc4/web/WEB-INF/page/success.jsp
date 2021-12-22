@@ -11,7 +11,14 @@
     <title>SUCCESS!</title>
   </head>
   <body>
+
   欢迎来到<br>
-  ${hello}
+  ${hello}<br><br>
+
+  page:${pageScope.hello}<br>
+  request:${requestScope.hello}<br>
+  session:${sessionScope.hello}<br>
+  application:${applicationScope.hello}<br>
+
   </body>
 </html>
