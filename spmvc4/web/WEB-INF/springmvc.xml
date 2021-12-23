@@ -17,9 +17,16 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>
 
+    <!--spring自带的视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/page/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--自定义的视图解析器
+        可以XML配置，也可以注解配置-->
+    <bean class="com.laowang.resolver.MyViewResolver">
+        <property name="order" value="1"/>
     </bean>
 
 </beans>
