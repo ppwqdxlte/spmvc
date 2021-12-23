@@ -32,8 +32,11 @@
     <!--添加自定义的类型转换器到ConversionServiceFactoryBean中,
     【注意!】必须给这个工厂bean指定id="XXX"，用来跟spring框架core里面的“conversionService”做区分！！！
     并且【一定要】在<mvc:annotation-driven conversion-service="XXX"/>注解里面
-            添加conversion-service属性！！-->
-    <bean id="conversionService2" class="org.springframework.context.support.ConversionServiceFactoryBean">
+            添加conversion-service属性！！
+
+     对于日期格式转换器，需要把工厂豆儿具体化，改为Formatting子类，其它转换器不受影响，子类转换器工厂豆继承自父类豆
+     -->
+    <bean id="conversionService2" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="converters">
             <set>
                 <ref bean="myConverter"/>

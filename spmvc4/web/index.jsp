@@ -31,6 +31,16 @@
       --%>
       <input type="text" name="user"><br>
       <input type="submit" value="提交">
+  </form><br><br>
+
+  自定义日期格式转换器：<br>
+  <form action="${ctp}/dateconvert/1" method="post">
+      id:<input type="text" name="id" value="${dateUser.id}"><br>
+      name:<input type="text" name="name" value="${dateUser.name}"><br>
+      age:<input type="text" name="age" value="${dateUser.age}"><br>
+      password:<input type="password" name="password" value="${dateUser.password}"><br>
+      birth:<input type="text" name="birth" value="${dateUser.birth}"><br>
+      <input type="submit" value="提交">
   </form>
   
   <br><br><img src="${ctp}/static/images/shenzhen.jpg" alt="找不到？咋回事儿！"/>

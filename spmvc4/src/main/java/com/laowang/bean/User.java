@@ -1,5 +1,8 @@
 package com.laowang.bean;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 import java.util.Objects;
 
 public class User {
@@ -8,6 +11,8 @@ public class User {
     private String name;
     private Integer age;
     private String password;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE,pattern = "yyyy-MM-dd")
+    private Date birth;
 
     public User() {
     }
@@ -26,6 +31,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", password='" + password + '\'' +
+                ", birth=" + birth +
                 '}';
     }
 
@@ -34,12 +40,20 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(age, user.age) && Objects.equals(password, user.password);
+        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(age, user.age) && Objects.equals(password, user.password) && Objects.equals(birth, user.birth);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, age, password);
+        return Objects.hash(id, name, age, password, birth);
+    }
+
+    public Date getBirth() {
+        return birth;
+    }
+
+    public void setBirth(Date birth) {
+        this.birth = birth;
     }
 
     public Integer getId() {
