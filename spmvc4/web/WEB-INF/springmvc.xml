@@ -14,7 +14,7 @@
 
     <!--静态资源能够被访问到-->
     <mvc:default-servlet-handler/>
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionService2"/>
     <mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>
 
     <!--spring自带的视图解析器-->
@@ -28,5 +28,17 @@
     <!--<bean class="com.laowang.resolver.MyViewResolver">
         <property name="order" value="1"/>
     </bean>-->
+
+    <!--添加自定义的类型转换器到ConversionServiceFactoryBean中,
+    【注意!】必须给这个工厂bean指定id="XXX"，用来跟spring框架core里面的“conversionService”做区分！！！
+    并且【一定要】在<mvc:annotation-driven conversion-service="XXX"/>注解里面
+            添加conversion-service属性！！-->
+    <bean id="conversionService2" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="myConverter"/>
+            </set>
+        </property>
+    </bean>
 
 </beans>

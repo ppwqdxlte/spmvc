@@ -21,11 +21,19 @@
       年龄：<input type="text" name="age"><br>
       密码：<input type="password" name="password"><br>
       <input type="submit" value="更 新"><br>
+  </form><br><br>
+
+  请按照id-name-age-password 的方式输入数据：<br>
+  <form action="${ctp}/converter/1" method="post">
+      <%--
+      要想成功映射，下面输入框的属性名称必须要和controller的方法入参名称user保持一致！
+      这样 MyConverter才能正确转换注入！
+      --%>
+      <input type="text" name="user"><br>
+      <input type="submit" value="提交">
   </form>
   
-  <br>
-  <br>
-  <img src="${ctp}/static/images/shenzhen.jpg" alt="找不到？咋回事儿！"/>
+  <br><br><img src="${ctp}/static/images/shenzhen.jpg" alt="找不到？咋回事儿！"/>
 
   </body>
 </html>

@@ -1,4 +1,4 @@
-package com.laowang.bean;
+package com.laowang.resolver;
 
 import org.springframework.web.servlet.View;
 
