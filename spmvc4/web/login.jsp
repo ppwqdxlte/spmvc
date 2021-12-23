@@ -13,12 +13,12 @@
 <body>
 <% pageContext.setAttribute("ctp",request.getContextPath());%>
   <form action="${ctp}/validate/1" method="post">
-      ID:<input type="text" name="id"><br>
-      name:<input type="text" name="name"><br>
-      age:<input type="text" name="age"><br>
-      birth:<input type="text" name="birth"><br><%--注意轻易别用date组件！容易报错！--%>
-      phoneNum:<input type="text" name="phoneNum"><br>
-      email:<input type="text" name="email"><br>
+      ID:<input type="text" name="id" value="${person.id}">${errors.id}<br>
+      name:<input type="text" name="name" value="${person.name}">${errors.name}<br>
+      age:<input type="text" name="age" value="${person.age}">${errors.age}<br>
+      birth:<input type="text" name="birth" value="${person.birth}">${errors.birth}<br><%--注意轻易别用date组件！容易报错！--%>
+      phoneNum:<input type="text" name="phoneNum" value="${person.phoneNum}">${errors.phoneNum}<br>
+      email:<input type="text" name="email" value="${person.email}">${errors.email}<br>
       <input type="submit" value="登陆">
   </form>
 
