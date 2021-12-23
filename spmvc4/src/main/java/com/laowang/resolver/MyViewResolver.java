@@ -2,6 +2,8 @@ package com.laowang.resolver;
 
 import com.laowang.bean.MyView;
 import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 
@@ -15,6 +17,8 @@ import java.util.Locale;
 * 所以为了测试本自定义视图解析器，将此类注解为@Order(1)
 * */
 
+@Component
+@Order(1)
 public class MyViewResolver implements ViewResolver, Ordered {
 
     /*

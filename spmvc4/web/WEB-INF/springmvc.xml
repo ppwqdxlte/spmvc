@@ -25,8 +25,8 @@
 
     <!--自定义的视图解析器
         可以XML配置，也可以注解配置-->
-    <bean class="com.laowang.resolver.MyViewResolver">
+    <!--<bean class="com.laowang.resolver.MyViewResolver">
         <property name="order" value="1"/>
-    </bean>
+    </bean>-->
 
 </beans>
