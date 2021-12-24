@@ -39,12 +39,15 @@ Hibernate-validator表单验证：<br>
     而不用@RequestParam @RequestAttribute @RequestHeader @RequestBody @PathVariable @CookieValue等注解,
     【注意】HttpEntity不能保存GET方法发送的数据，却能保存POST方法发送的数据，
     就是说不能通过地址栏 ？XXX=XXX & YYY=YYY这样，表单等POST方式都行--%>
+    用HttpEntity 控制器方法 参数 来携带前端数据：<br>
     <form action="${ctp}/entity/1" method="post">
         username:<input type="text" name="username" value="${username}"><br>
         age:<input type="text" name="age" value="${age}"><br>
         file:<input type="file" name="file" value="${file}"><br>
         <input type="submit" value="提交">
     </form><br>
+
+    <h3><a href="${ctp}/file/download/1">点击下载jquery.js文件</a></h3><br>
 
 </body>
 
