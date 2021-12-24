@@ -30,8 +30,10 @@ Hibernate-validator表单验证：<br>
   </form><br><br>
 
     <%--哪怕单击事件有url参数值，超链标签的href也要写！--%>
-    <h3><a href="${ctp}/jackson/1">Ajax请求后台json数据并回显</a></h3>
+    <h3><a href="#">Ajax请求后台json数据并回显</a></h3>
     <div></div><br>
+
+    <h3><a href="#">Ajax向后台发送json数据</a></h3><br>
 
 </body>
 
@@ -49,6 +51,22 @@ Hibernate-validator表单验证：<br>
             }
         });
         return false;//不加这一句的话就直接跳转到了json的请求体，什么都不跳，这样数据才能显示到页面的div中
+    });
+
+    /* 选择器：全都是细节！*/
+    $("h3:nth-of-type(2) a").click(function () {
+        var user = {id:100,name:"laowang",age:31,password:"kshje94h",birth:"2000-01-12"};
+        var jsonuser = JSON.stringify(user);
+        $.ajax({
+            url: "${ctp}/jackson/3",
+            type: "POST",
+            data:jsonuser,
+            contentType: "application/json",
+            success:function (data) {
+                alert(data.id+"~~"+data.name+"~~"+data.age+"~~"+data.password+"~~"+data.birth);
+            }
+        });
+        return false;
     });
 
 </script>

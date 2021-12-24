@@ -2,6 +2,7 @@ package com.laowang.controller;
 
 import com.laowang.bean.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,6 +33,17 @@ public class JacksonController {
     @ResponseBody
     @RequestMapping("/2")
     public String json2(){
-        return "<h1>Hello,Jackson!!~~~";
+        return "<h1>Hello,Jackson!!~~~</h1>";
+    }
+
+    /*
+    * RequestBody接收并转化前端数据给参数，
+    * ResponseBody携带后端数据发送给前台
+    * */
+    @ResponseBody
+    @RequestMapping("/3")
+    public User json3(@RequestBody User user){
+        System.out.println(user);
+        return user;
     }
 }
