@@ -4,6 +4,7 @@ import com.laowang.bean.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,5 +23,15 @@ public class JacksonController {
         users.add(new User(4,"lisi",24,"g,-405y-"));
         users.add(new User(5,"wangwu",28,"f345y5=[][9i"));
         return users;
+    }
+
+    /*
+    * 不管啥返回形式，注解了ResponseBody后都会把内容装在请求体中直接返回给客户端浏览器，有些消息通过服务器转换别的显示格式，过滤后剩下
+    * 的消息让客户端浏览器自己渲染解析
+    * */
+    @ResponseBody
+    @RequestMapping("/2")
+    public String json2(){
+        return "<h1>Hello,Jackson!!~~~";
     }
 }
