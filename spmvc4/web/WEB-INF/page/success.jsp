@@ -30,5 +30,6 @@
   age:${convertedUser.age}<br>
   password:${convertedUser.password}<br><br>
 
+  <% System.out.println("THIS IS SUCCESS.JSP.");%>
   </body>
 </html>
