@@ -42,4 +42,19 @@ public class FileController {
         return "success";
     }
 
+    /*
+    * 多文件上传
+    * */
+    @RequestMapping("/upload/2")
+    public String upload2(@RequestParam(value = "uploadedFile",required = false) MultipartFile[] multipartFiles,
+                          @RequestParam(value = "desc",required = false) String desc,HttpServletRequest request) throws IOException {
+        for (MultipartFile multipartFile : multipartFiles) {
+            if (!multipartFile.isEmpty()){ //必须非空判断，否则容易报错
+                multipartFile.transferTo(new File(
+                        request.getServletContext().getRealPath("")+"/WEB-INF/upload/"+multipartFile.getOriginalFilename()));
+            }
+        }
+        return "success";
+    }
+
 }

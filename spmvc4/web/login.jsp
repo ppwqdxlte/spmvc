@@ -56,6 +56,15 @@ Hibernate-validator表单验证：<br>
         <input type="submit" value="开始上传">
     </form>
 
+    多文件上传：<br>
+    <form action="${ctp}/file/upload/2" method="post" enctype="multipart/form-data">
+        desc:<input type="text" name="desc"><br>
+        file:<input type="file" name="uploadedFile"><br>
+        file:<input type="file" name="uploadedFile"><br>
+        file:<input type="file" name="uploadedFile"><br>
+        <input type="submit" value="开始上传">
+    </form>
+
 </body>
 
 <script type="text/javascript">
