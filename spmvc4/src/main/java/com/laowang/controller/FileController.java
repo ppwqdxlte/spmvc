@@ -2,15 +2,15 @@ package com.laowang.controller;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
-import java.util.List;
 
 @Controller
 @RequestMapping("/file")
@@ -27,6 +27,19 @@ public class FileController {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set("Content-Disposition","attachment:filename=jquery-3.6.0.min.js");
         return new ResponseEntity<byte[]>(bytes,httpHeaders, HttpStatus.OK);
+    }
+
+    /*
+    * Apache Commons MultipartFile这个组件是MVC提供的，不是Spring默认的，所以必须要在springmvc配置文件里配置这个bean
+    * */
+    @RequestMapping("/upload/1")
+    public String upload1(@RequestParam(value = "uploadedFile",required = false) MultipartFile multipartFile,
+                          @RequestParam(value = "desc",required = false) String desc,HttpServletRequest request) throws IOException {
+        System.out.println(desc);
+        System.out.println(multipartFile.getOriginalFilename());
+        multipartFile.transferTo(new File(
+                request.getServletContext().getRealPath("")+"/WEB-INF/upload/"+multipartFile.getOriginalFilename()));
+        return "success";
     }
 
 }

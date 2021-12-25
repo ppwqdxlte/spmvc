@@ -49,6 +49,13 @@ Hibernate-validator表单验证：<br>
 
     <h3><a href="${ctp}/file/download/1">点击下载jquery.js文件</a></h3><br>
 
+    文件上传：<br>
+    <form action="${ctp}/file/upload/1" method="post" enctype="multipart/form-data">
+        desc:<input type="text" name="desc"><br>
+        file:<input type="file" name="uploadedFile"><br>
+        <input type="submit" value="开始上传">
+    </form>
+
 </body>
 
 <script type="text/javascript">
