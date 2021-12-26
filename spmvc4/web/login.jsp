@@ -69,10 +69,10 @@ Hibernate-validator表单验证：<br>
 
     <%--浏览器语言首选项会影响 页面的国际化翻译--%>
     国际化：<br>
-    <h4><a href="${ctp}/i18n/1?locale=zh-CN">中文</a> <a href="${ctp}/i18n/1?locale=en-US">ENGLISH</a> </h4>
+    <h4><a href="${ctp}/i18n/2?locale=zh-CN">中文</a>
+        <a href="${ctp}/i18n/2?locale=en-US">ENGLISH</a> </h4>
     <h3><fmt:bundle basename="login">   <%--奇了怪了，必须添加fmt:bundle才能识别出来--%>
-            <fmt:message key="welcomeinfo"/>
-        </fmt:bundle></h3>
+                     <fmt:message key="welcomeinfo"/></fmt:bundle></h3>
     <form action="${ctp}/i18n/1" method="post">
         <fmt:bundle basename="login"><fmt:message key="username"/></fmt:bundle>:<input type="text" name="name"/><br>
         <fmt:bundle basename="login"><fmt:message key="password"/></fmt:bundle>:<input type="password" name="password"/><br>

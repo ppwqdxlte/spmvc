@@ -74,4 +74,8 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="login"/><!--绑定这个login前缀的信息源给容器-->
     </bean>
+
+    <!--自定义 LocaleResolver解析器，用来处理国际化请求-->
+    <bean id="localeResolver" class="com.laowang.resolver.MyLocaleResolver"/>
+
 </beans>
