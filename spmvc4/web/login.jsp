@@ -5,7 +5,9 @@
   Time: 19:54
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%--引入JSP标准标签库 JSTL 的 fmt子库--%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--jsp的页面属性变量，一定要设置在 ${“变量”}引用的上面！！！否则找不到变量值！！！--%>
 <% pageContext.setAttribute("ctp",request.getContextPath());%>
 <html>
@@ -63,6 +65,18 @@ Hibernate-validator表单验证：<br>
         file:<input type="file" name="uploadedFile"><br>
         file:<input type="file" name="uploadedFile"><br>
         <input type="submit" value="开始上传">
+    </form>
+
+    <%--浏览器语言首选项会影响 页面的国际化翻译--%>
+    国际化：<br>
+    <h4><a href="${ctp}/i18n/1?locale=zh-CN">中文</a> <a href="${ctp}/i18n/1?locale=en-US">ENGLISH</a> </h4>
+    <h3><fmt:bundle basename="login">   <%--奇了怪了，必须添加fmt:bundle才能识别出来--%>
+            <fmt:message key="welcomeinfo"/>
+        </fmt:bundle></h3>
+    <form action="${ctp}/i18n/1" method="post">
+        <fmt:bundle basename="login"><fmt:message key="username"/></fmt:bundle>:<input type="text" name="name"/><br>
+        <fmt:bundle basename="login"><fmt:message key="password"/></fmt:bundle>:<input type="password" name="password"/><br>
+        <input type="submit" value="<fmt:bundle basename="login"><fmt:message key="submit"/></fmt:bundle>"/>
     </form>
 
 </body>

@@ -69,4 +69,9 @@
             <bean class="com.laowang.interceptor.MyInterceptor2"/>
         </mvc:interceptor>
     </mvc:interceptors>
+
+    <!--配置 资源绑定信息源-->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="login"/><!--绑定这个login前缀的信息源给容器-->
+    </bean>
 </beans>
