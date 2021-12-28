@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /*全局异常处理切面
 * 这种控制器切面，异常处理可以写在Controller外面，统一异常处理
+* 但是你要注意了： SpringMVC 异常处理器分三类，ExceptionHandler，ResponseStatus，和DefaultException，
+* 就是说实现了此HandlerExceptionResolver接口的处理类只能处理 Exception，不能处理ResponseStatus异常，要处理后者用别的方法
 * */
 @ControllerAdvice
 public class MyExceptionResolver implements HandlerExceptionResolver {
