@@ -1,8 +1,10 @@
 package com.laowang.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -21,6 +23,30 @@ public class ExceptionController {
             throw new UsernameException("There's no parameter of 'username'");
         }
         return "success";
+    }
+
+    /*
+    * 虽然状态码OK，但无法跳转，被异常拦截了
+    * */
+    @ResponseStatus(value = HttpStatus.OK,reason = "没有异常，OK，但是会不会有啥异常")
+    @RequestMapping("/3")
+    public String exception3(){
+        return "success";
+    }
+
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST,reason = "有异常，BAD_REQUEST")
+    @RequestMapping("/4")
+    public String exception4(){
+        return "success";
+    }
+
+    @RequestMapping("/5")
+    public String exception5(String name){
+        if (name == null || !name.equals("admin")){
+            throw new ExceptionController.NameExcepion();
+        }else {
+            return "success";
+        }
     }
 
     /*
@@ -55,6 +81,9 @@ public class ExceptionController {
         modelAndView.addObject("exce",e);
         return modelAndView;
     }*/
+
+    @ResponseStatus(value = HttpStatus.NOT_ACCEPTABLE,reason = "不接受此用户名，请填入正确用户")
+    static class NameExcepion extends RuntimeException{ }
 }
 
 class UsernameException extends RuntimeException {

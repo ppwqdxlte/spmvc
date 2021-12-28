@@ -77,6 +77,7 @@
     <!--配置 资源绑定信息源-->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="login"/><!--绑定这个login前缀的信息源给容器-->
+        <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
     <!--自定义 LocaleResolver解析器，用来处理国际化请求,
