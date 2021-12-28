@@ -75,7 +75,9 @@
         <property name="basename" value="login"/><!--绑定这个login前缀的信息源给容器-->
     </bean>
 
-    <!--自定义 LocaleResolver解析器，用来处理国际化请求-->
-    <bean id="localeResolver" class="com.laowang.resolver.MyLocaleResolver"/>
+    <!--自定义 LocaleResolver解析器，用来处理国际化请求,
+    【注意】只能自定义一个local bean，而且id只能叫做localeResolver，否则不生效-->
+    <bean id="localeResolver" class="com.laowang.resolver.MyLocaleResolver"/><!--这个过滤url?locale=XXX的请求-->
+    <!--<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>-->
 
 </beans>

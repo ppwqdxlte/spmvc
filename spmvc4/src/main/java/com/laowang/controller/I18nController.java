@@ -6,8 +6,10 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Locale;
 
 @Controller
@@ -35,6 +37,21 @@ public class I18nController {
         System.out.println(loc);
         System.out.println(locale);
         response.setLocale(locale);
+        return "success";
+    }
+
+    /*不推荐在controller方法中写国际化代码，冗余太多，还是自定义LocaleResolver更好点，
+    除了实现LocaleResolver接口，还可以继承CookieLocaleResolver，SessionLocaleResolver等等
+    * */
+    @RequestMapping("/3")
+    public String i18n3(@RequestParam(value = "locale",required = false) String locStr,Locale locale ,HttpSession session){
+        Locale locale1 = null;
+        if (locStr!=null && !"".equals(locStr) && locStr.split("-").length==2){
+            locale1 = new Locale(locStr.split("-")[0],locStr.split("-")[1]);
+        }else{
+            locale1 = locale;
+        }
+        session.setAttribute(SessionLocaleResolver.LOCALE_SESSION_ATTRIBUTE_NAME,locale1);
         return "success";
     }
 }
